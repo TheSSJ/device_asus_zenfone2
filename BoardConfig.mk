@@ -1,8 +1,13 @@
 TARGET_BOARD_PLATFORM := moorefield
+TARGET_BOOTLOADER_BOARD_NAME := moorefield
 TARGET_ARCH := x86
-TARGET_ARCH_VARIANT := silvermont
+TARGET_ARCH_VARIANT := x86-atom
 TARGET_CPU_ABI := x86
 TARGET_CPU_VARIANT := x86
+TARGET_CPU_ABI2 := armeabi-v7a
+TARGET_CPU_ABI_LIST := x86,armeabi-v7a,armeabi
+TARGET_CPU_ABI_LIST_32_BIT := x86,armeabi-v7a,armeabi
+TARGET_CPU_SMP := true
 DEVICE_RESOLUTION := 1080x1920
 HAVE_SELINUX := true
 ANDROID_COMMON_BUILD_MK := true
@@ -19,7 +24,7 @@ BOARD_KERNEL_CMDLINE += watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:x
 BOARD_KERNEL_CMDLINE += snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on debug_locks=0
 
 # TWRP
-#TARGET_RECOVERY_INITRC := device/asus/zenfone2/init.rc
+TARGET_RECOVERY_INITRC := device/asus/zenfone2/init.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/zenfone2/zImage
 TARGET_RECOVERY_FSTAB := device/asus/zenfone2/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
