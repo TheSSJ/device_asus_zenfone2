@@ -12,11 +12,17 @@ USE_OPENGL_RENDERER := true
 TARGET_GLOBAL_CFLAGS += -march=atom -mstackrealign -DUSE_SSSE3 -DUSE_SSE2 -mfpmath=sse
 TARGET_PREBUILT_KERNEL := device/asus/zenfone2/zImage
 
+BOARD_FLASH_BLOCK_SIZE := 2048
+BOARD_KERNEL_CMDLINE := init=/init pci=noearly loglevel=0 vmalloc=256M androidboot.hardware=mofd_v1
+BOARD_KERNEL_CMDLINE += watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=01234567890123456789
+BOARD_KERNEL_CMDLINE += snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on debug_locks=0
+
 # TWRP
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-TW_INCLUDE_CRYPTO := true
+TARGET_RECOVERY_INITRC := device/asus/zenfone2/init.rc
 TARGET_PREBUILT_RECOVERY_KERNEL := device/asus/zenfone2/zImage
 TARGET_RECOVERY_FSTAB := device/asus/zenfone2/twrp.fstab
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TW_INCLUDE_CRYPTO := true
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_FLASH_FROM_STORAGE := true
