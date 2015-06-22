@@ -12,7 +12,8 @@ on early-init
     start healthd
 
 on init
-    export PATH /sbin:/system/bin
+    export PATH /sbin
+    export LD_LIBRARY_PATH .:/sbin
     export ANDROID_ROOT /system
     export ANDROID_DATA /data
     export EXTERNAL_STORAGE /sdcard
