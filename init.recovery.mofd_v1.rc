@@ -13,6 +13,7 @@ on init
     write /proc/sys/kernel/panic_on_oops 1
 
     mkdir /factory 0775 system system
+    mkdir /usb-otg 0775 system system
     mount ext4 /dev/block/by-name/factory /factory nosuid nodev noatime barrier=1,data=ordered
 
 on boot

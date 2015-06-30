@@ -29,10 +29,20 @@ BOARD_KERNEL_CMDLINE := init=/init pci=noearly loglevel=0 vmalloc=256M androidbo
 BOARD_KERNEL_CMDLINE += watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=01234567890123456789
 BOARD_KERNEL_CMDLINE += snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on debug_locks=0 androidboot.selinux=permissive
 
+
+#change this to "twrp" to make a TWRP recovery, philz for Philz touch
+RECOVERY_VARIANT := twrp
+
 # TWRP
-TARGET_RECOVERY_FSTAB := device/asus/zenfone2/twrp.fstab
+ifeq ($(RECOVERY_VARIANT),twrp)
+	TARGET_RECOVERY_FSTAB := device/asus/zenfone2/twrp.fstab
+else
+	TARGET_RECOVERY_FSTAB := device/asus/zenfone2/recovery.fstab
+endif
+
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
 TW_INCLUDE_CRYPTO := true
+TW_NTFS_WA := true
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_FLASH_FROM_STORAGE := true
@@ -44,4 +54,4 @@ TW_NO_SCREEN_BLANK := true
 TW_NO_SCREEN_TIMEOUT := true
 TW_EXCLUDE_SUPERSU := true
 TWRP_EVENT_LOGGING := false
-TW_NO_USB_STORAGE := false
+TW_NO_USB_STORAGE := true

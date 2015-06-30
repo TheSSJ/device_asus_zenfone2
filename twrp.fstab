@@ -3,7 +3,8 @@
 /factory	ext4	/dev/block/by-name/factory	flags=display="Factory"
 /data	ext4	/dev/block/by-name/data	flags=encryptable=/factory/userdata_footer
 /misc	emmc	/dev/block/by-name/misc	flags=display="Misc";backup=1
+/recovery	emmc	/dev/block/by-name/recovery flags=backup=1
 /splashscreen	emmc	/dev/block/by-name/splashscreen	flags=display="Splashscreen";backup=1
 /system	ext4	/dev/block/by-name/system
 /usb_otg auto /dev/block/sda1 /dev/block/sda flags=display="USB-OTG";storage;removable
-/external_sd	vfat	/dev/block/mmcblk1p1	flags=display="MicroSD";storage;wipeingui;removable
+/external_sd	vfat	/dev/block/mmcblk1p1	flags=display="MicroSD";storage;removable
