@@ -29,8 +29,10 @@ BOARD_KERNEL_CMDLINE := init=/init pci=noearly loglevel=0 vmalloc=256M androidbo
 BOARD_KERNEL_CMDLINE += watchdog.watchdog_thresh=60 androidboot.spid=xxxx:xxxx:xxxx:xxxx:xxxx:xxxx androidboot.serialno=01234567890123456789
 BOARD_KERNEL_CMDLINE += snd_pcm.maximum_substreams=8 ip=50.0.0.2:50.0.0.1::255.255.255.0::usb0:on debug_locks=0 androidboot.selinux=permissive
 
+#adb fix
+BOARD_FUNCTIONFS_HAS_SS_COUNT := true
 
-#change this to "twrp" to make a TWRP recovery, philz for Philz touch
+#change this to "twrp" to make a TWRP recovery, or any other recovery which might be released
 RECOVERY_VARIANT := twrp
 
 # TWRP
